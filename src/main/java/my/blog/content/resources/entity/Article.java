@@ -3,7 +3,7 @@ package my.blog.content.resources.entity;
 import lombok.Getter;
 import lombok.Setter;
 import my.blog.content.common.entity.StringUUIDEntity;
-import my.blog.content.resources.entity.dict.ContentStatus;
+import my.blog.content.resources.entity.dict.ArticleStatus;
 
 
 import javax.persistence.*;
@@ -32,9 +32,9 @@ public class Article extends StringUUIDEntity {
     @Getter(onMethod_={@Column(name = "cover")})
     @Setter
     private Blob cover;// 封面
-    @Getter(onMethod_={@Column(name = "content_status")})
+    @Getter(onMethod_={@Enumerated(EnumType.STRING), @Column(name = "article_status")})
     @Setter
-    private ContentStatus contentStatus;// 文章状态
+    private ArticleStatus articleStatus;// 文章状态
     @Getter(onMethod_={@Column(name = "vote_up")})
     @Setter
     private Integer voteUp = 0;// “顶”的数量

@@ -6,7 +6,7 @@ CREATE TABLE `blog_article` (
 `summany`  varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '摘要' ,
 `markdown_enable`  tinyint(4) NOT NULL COMMENT '是否启用markdown' ,
 `cover`  longblob NULL COMMENT '封面' ,
-`content_status`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章状态' ,
+`article_status`  varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章状态' ,
 `vote_up`  int(11) NOT NULL COMMENT '“顶”的数量' ,
 `comment_count`  int(11) NOT NULL COMMENT '评论数量' ,
 `view_count`  int(11) NOT NULL COMMENT '访问量' ,

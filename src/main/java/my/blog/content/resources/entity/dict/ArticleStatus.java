@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @AllArgsConstructor
-public enum ContentStatus {
+public enum ArticleStatus {
 
 	TEMPORARY("未发布","暂存"){},
 	NORMAL("已发布","正常"){},

@@ -35,6 +35,9 @@ public class JsonTools {
 	 * @return
 	 * @throws IOException
 	 */
+
+	//FIXME FILTER_NAME异常！！！
+
 	public final static String entityToJson(BaseEntity entity, String... ingoreProperties) throws IOException {
 		FilterProvider filterProvider = new SimpleFilterProvider().addFilter(FILTER_NAME,
 				SimpleBeanPropertyFilter.serializeAllExcept(ingoreProperties));
