@@ -20,6 +20,8 @@ public class ArticleController {
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public List<Article> findByUserId(@PathVariable("userId") String userId) {
-        return articleService.findByUserId(userId);
+        List<Article> resList = articleService.findByUserId(userId);
+        System.out.println(resList.get(0).toJson());
+        return resList;
     }
 }

@@ -6,4 +6,4 @@ spring:
       default #指定服务应该运行环境配置profile
   cloud:
     config:
-      uri: http://localhost:8888 #指定Spring Cloud Config配置服务器端点及端点的位置
+      uri: http://localhost:8888 # Cloud Config配置服务器端点及端点的位置指定Spring
