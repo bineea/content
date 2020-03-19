@@ -7,3 +7,5 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888 # Cloud Config配置服务器端点及端点的位置指定Spring
+encrypt:
+  key: zhimakaimen #设置对称密钥

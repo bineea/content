@@ -32,9 +32,21 @@
 
         <!--使用Java Persistence API(JPA)-->
         <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+        <!-- 搜索java.security文件中：crypto.policy=unlimited，并去掉注释；添加org.springframework.security依赖，实现spring config 对称加密 -->
+        <!-- JAVA SE 8 $JAVA_HOME/jre/lib/security/java.security-->
+        <!-- JAVA SE 11 $JAVA_HOME/conf/security/java.security-->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-rsa -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-rsa</artifactId>
+            <version>1.0.9.RELEASE</version>
+        </dependency>
+
+
+
         <!-- mysql jdbc 依赖 -->
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
