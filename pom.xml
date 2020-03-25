@@ -42,6 +42,12 @@
             <artifactId>spring-cloud-starter-eureka</artifactId>
             <version>1.4.7.RELEASE</version>
         </dependency>
+        <!-- netflix geign 客户端依赖 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
 
         <!--使用Java Persistence API(JPA)-->
         <dependency>
