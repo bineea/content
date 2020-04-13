@@ -2,7 +2,7 @@ package my.blog.content.resources.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import my.blog.content.common.entity.StringUUIDEntity;
+import my.blog.comm.base.entity.StringUUIDEntity;
 import my.blog.content.resources.entity.dict.ArticleStatus;
 
 

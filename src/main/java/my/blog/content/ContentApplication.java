@@ -14,7 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 //@EnableEurekaClient
 
 //启用Feign客户端
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"my.blog.account.api"})
 public class ContentApplication {
 
     public static void main(String[] args) {

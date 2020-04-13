@@ -1,6 +1,6 @@
 package my.blog.content.controllers.article;
 
-import my.blog.content.common.pub.MyManagerException;
+import my.blog.comm.base.pub.MyManagerException;
 import my.blog.content.model.CreateArticleModel;
 import my.blog.content.resources.entity.Article;
 import my.blog.content.services.ArticleService;
