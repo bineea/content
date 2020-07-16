@@ -2,11 +2,10 @@ package my.blog.content.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import my.blog.content.common.entity.BaseEntity;
+import my.blog.comm.base.entity.BaseEntity;
 import my.blog.content.resources.entity.dict.ArticleStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 

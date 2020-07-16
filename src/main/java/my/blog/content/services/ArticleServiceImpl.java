@@ -1,5 +1,7 @@
 package my.blog.content.services;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import my.blog.account.api.clients.AccountClient;
 import my.blog.account.api.model.UserModel;
 import my.blog.comm.base.pub.MyManagerException;
@@ -21,7 +23,20 @@ public class ArticleServiceImpl extends AbstractService implements ArticleServic
     @Autowired
     private AccountClient accountClient;
 
-
+    @HystrixCommand(
+            commandProperties = {
+                    @HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value = "10"),
+                    @HystrixProperty(name="circuitBreaker.errorThresholdPercentage", value = "75"),
+                    @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds", value = "10000"),
+                    //断路器超时时间
+                    @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+                    //断路器统计信息的滚动窗口
+                    @HystrixProperty(name="metrics.rollingStats.timeInMilloseconds", value = "15000"),
+                    //断路器并不是最后统计信息，而是按照bucket来统计，bucket数量为3，则是15000/3=5000ms，每5000ms统计一次数据
+                    @HystrixProperty(name="metrics.rollingStats.numBuckets", value = "3")
+            },
+            threadPoolKey = "contentDBThreadPool"
+    )
     @Override
     public List<Article> findByUserId(String userId) {
         return articleRepo.findByUserId(userId);
