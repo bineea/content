@@ -1,10 +1,19 @@
 package my.blog.content;
 
+import my.blog.ribbon.config.RandomRuleRibbonConfig;
+import my.blog.ribbon.config.RryRuleRibbonConfig;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.AutoConfigurationExcludeFilter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.TypeExcludeFilter;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClients;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.FilterType;
 
 //@SpringBootApplication 告诉Spring Boot框架，这是项目的引导类。实现服务的核心初始化逻辑
 @SpringBootApplication
@@ -17,6 +26,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 //启用Hystrix
 @EnableCircuitBreaker
+
+//不同的微服务配置不同负载均衡策略
+@RibbonClients({
+        @RibbonClient(name = "accountservice", configuration = RandomRuleRibbonConfig.class),
+        @RibbonClient(name = "confservice", configuration = RryRuleRibbonConfig.class)
+})
 public class ContentApplication {
 
     public static void main(String[] args) {
